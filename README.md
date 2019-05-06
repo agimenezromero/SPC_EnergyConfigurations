@@ -12,11 +12,7 @@ Table of contents
    * [Table of contents](#table-of-contents)
    * [Installation](#installation)
    * [Usage](#usage)
-     * [Loading files](#Loading-files)
-       * [Pre analysis](#Pre-analysis)
-       * [Post analysis](#Post-analysis)
-      * [Analysing data](#Analysing-data)
-      * [Ploting analized data](#Ploting-analized-data)
+      * [Ploting data](#Ploting-data)
       * [Customizing plots](#Customizing-plots)
    * [Tests](#tests)
 <!--te-->
@@ -27,7 +23,7 @@ Table of contents
    - NumPy
    - Matplotlib
    - PyQt5
-3. To run the program simply double-click the MagChain_EnergyConfigurations.pyw file or execute via cmd as > python3 MagChain_EnergyConfigurations.pyw > in the corresponding directory.
+3. To run the program simply double-click the MagChain_EnergyConfigurations.pyw file or execute via cmd as > python3 MagChain_EnergyConfigurations.pyw in the corresponding directory.
 
 # Usage
 
