@@ -23,7 +23,7 @@ Table of contents
    - NumPy
    - Matplotlib
    - PyQt5
-3. To run the program simply double-click the MagChain_EnergyConfigurations.pyw file or execute via cmd as > python3 MagChain_EnergyConfigurations.pyw in the corresponding directory.
+3. To run the program simply double-click the MagChain_EnergyConfigurations.pyw file or execute via cmd as >python3 MagChain_EnergyConfigurations.pyw in the corresponding directory.
 
 # Usage
 
