@@ -1,4 +1,4 @@
-# MagChain EnergyConfigurations
+# MagneticChain EnergyConfigurations
 A simple graphical interface built in PyQt5 to calculate and analyse the energy of different magnetic configurations.
 
 # Overview
@@ -8,7 +8,7 @@ Table of contents
 =================
 
 <!--ts-->
-   * [MagChain EnergyConfigurations](#MagChain-EnergyConfigurations)
+   * [MagneticChain EnergyConfigurations](#MagneticChain-EnergyConfigurations)
    * [Table of contents](#table-of-contents)
    * [Installation](#installation)
    * [Usage](#usage)
