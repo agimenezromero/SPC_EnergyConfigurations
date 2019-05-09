@@ -38,11 +38,36 @@ class Window(QMainWindow):
 		self.plot.clicked.connect(self.make_plots)
 		
 
+	def E_barrier_vs_dipole_frac(self, m, d, adimensionalised, N0, Nf, points, dipole_fractions):
+	
+		E_barrier = []
+
+		file = open('Energy_barrier_vs_dipole_fraction.dat', 'w')
+		file.write('#E barrier\tDipole fraction\n')
+
+		for dipole_frac in dipole_fractions:
+
+			energies = EnergyConfigs_AB(m, dipole_frac, d, adimensionalised)
+
+			r, E = energies.energy_barrier(N0, Nf, points)
+
+			times = len(E.shape)
+
+			E_barrier.append(np.amax(E))
+
+			file.write(str(dipole_frac) + '\t' + str(np.amax(E)) + '\n')
+
+		file.close()
+
+		return dipole_fractions, np.array(E_barrier)
+
+
 	#Make plots
 	def make_plots(self):
 
 		#System parameters
 		adimensionalised = self.adimensionalise.isChecked()
+		dipole_fraction = self.dipole_fraction.value()
 
 		if adimensionalised == True:
 			d = 1
@@ -67,6 +92,12 @@ class Window(QMainWindow):
 		Nf = self.Nf.value()
 		points = self.points.value()
 
+		#Energy barrier vas dipole frac parameters
+
+		init_dipole = self.init_dipole.value()
+		final_dipole = self.final_dipole.value()
+		points_dipole = self.points_dipole.value()
+
 		#Plot settings
 		title = self.title.text()
 		xlabel = self.xlabel.text()
@@ -84,6 +115,7 @@ class Window(QMainWindow):
 		plot_avg = self.plot_avg.isChecked()
 		default = self.default_2.isChecked()
 		legend = self.legend.isChecked()
+		inverse_xlim = self.inverse_xlim.isChecked()
 
 		equil = self.equil.value()
 
@@ -102,7 +134,7 @@ class Window(QMainWindow):
 		borders = self.borders.text()
 
 		#Obtain the arrays
-		config_energy = EnergyConfigs(m, d, adimensionalised)
+		config_energy = EnergyConfigs_AB(m, dipole_fraction, d, adimensionalised)
 
 		x_array = 0
 		y_array = 0
@@ -124,7 +156,6 @@ class Window(QMainWindow):
 			os.chdir(file_folder)
 			x_array, y_array = config_energy.add_progressive_laterally(N0, Nf, points)
 
-			x_array = list(reversed(list(x_array)))
 
 		elif self.plot_type.currentText() == 'Energy barrier':
 
@@ -142,7 +173,20 @@ class Window(QMainWindow):
 
 			os.chdir(file_folder)
 
-			pass
+			x_array, y_array = config_energy.zippering_config(N0, Nf)
+
+		elif self.plot_type.currentText() == 'Energy barrier vs dipole frac':
+
+			os.chdir(file_folder)
+
+			dipole_fractions = np.linspace(init_dipole, final_dipole, points_dipole)
+
+			x_array, y_array = self.E_barrier_vs_dipole_frac(m, d, adimensionalised, N0, Nf, points, dipole_fractions)
+
+		elif self.plot_type.currentText() == 'Add dipole middle chain':
+
+			os.chdir(file_folder)
+			x_array, y_array = config_energy.add_dipole_chain_middle(N0, Nf)
 
 		else:
 			QMessageBox.warning(self, 'Warning!', 'Unexpected error!')
@@ -164,7 +208,7 @@ class Window(QMainWindow):
 			if self.plot_type_2.currentText() == 'None':
 
 				#Plot the arrays
-				make_plot = MakePlot(title, xlabel, ylabel, data_labels, avg_labels, grid, data_linestyles, avg_linestyles, data_colors, avg_colors, data_markers, plot_avg, default, legend, equil, right, left, top, bottom, wspace, hspace, width, height, background, borders)
+				make_plot = MakePlot(title, xlabel, ylabel, data_labels, avg_labels, grid, data_linestyles, avg_linestyles, data_colors, avg_colors, data_markers, plot_avg, default, legend, inverse_xlim, equil, right, left, top, bottom, wspace, hspace, width, height, background, borders)
 				plt = make_plot.plot(x_array, y_array)
 
 				plt.show()
@@ -178,7 +222,7 @@ class Window(QMainWindow):
 				new_x_array = [x_array, x_array_2]
 				new_y_array = [y_array, y_array_2]
 
-				make_plot = MakePlot(title, xlabel, ylabel, data_labels, avg_labels, grid, data_linestyles, avg_linestyles, data_colors, avg_colors, data_markers, plot_avg, default, legend, equil, right, left, top, bottom, wspace, hspace, width, height, background, borders)
+				make_plot = MakePlot(title, xlabel, ylabel, data_labels, avg_labels, grid, data_linestyles, avg_linestyles, data_colors, avg_colors, data_markers, plot_avg, default, legend, inverse_xlim, equil, right, left, top, bottom, wspace, hspace, width, height, background, borders)
 				plt = make_plot.plot_comparison(new_x_array, new_y_array)
 
 				plt.show()
@@ -192,7 +236,7 @@ class Window(QMainWindow):
 				new_x_array = [x_array, x_array_2]
 				new_y_array = [y_array, y_array_2]
 
-				make_plot = MakePlot(title, xlabel, ylabel, data_labels, avg_labels, grid, data_linestyles, avg_linestyles, data_colors, avg_colors, data_markers, plot_avg, default, legend, equil, right, left, top, bottom, wspace, hspace, width, height, background, borders)
+				make_plot = MakePlot(title, xlabel, ylabel, data_labels, avg_labels, grid, data_linestyles, avg_linestyles, data_colors, avg_colors, data_markers, plot_avg, default, legend, inverse_xlim, equil, right, left, top, bottom, wspace, hspace, width, height, background, borders)
 				plt = make_plot.plot_comparison(new_x_array, new_y_array)
 
 				plt.show()
@@ -206,7 +250,7 @@ class Window(QMainWindow):
 				new_x_array = [x_array, x_array_2]
 				new_y_array = [y_array, y_array_2]
 
-				make_plot = MakePlot(title, xlabel, ylabel, data_labels, avg_labels, grid, data_linestyles, avg_linestyles, data_colors, avg_colors, data_markers, plot_avg, default, legend, equil, right, left, top, bottom, wspace, hspace, width, height, background, borders)
+				make_plot = MakePlot(title, xlabel, ylabel, data_labels, avg_labels, grid, data_linestyles, avg_linestyles, data_colors, avg_colors, data_markers, plot_avg, default, legend, inverse_xlim, equil, right, left, top, bottom, wspace, hspace, width, height, background, borders)
 				plt = make_plot.plot_comparison(new_x_array, new_y_array)
 
 				plt.show()
@@ -220,14 +264,54 @@ class Window(QMainWindow):
 				new_x_array = [x_array, x_array_2]
 				new_y_array = [y_array, y_array_2]
 
-				make_plot = MakePlot(title, xlabel, ylabel, data_labels, avg_labels, grid, data_linestyles, avg_linestyles, data_colors, avg_colors, data_markers, plot_avg, default, legend, equil, right, left, top, bottom, wspace, hspace, width, height, background, borders)
+				make_plot = MakePlot(title, xlabel, ylabel, data_labels, avg_labels, grid, data_linestyles, avg_linestyles, data_colors, avg_colors, data_markers, plot_avg, default, legend, inverse_xlim, equil, right, left, top, bottom, wspace, hspace, width, height, background, borders)
 				plt = make_plot.plot_comparison(new_x_array, new_y_array)
 
 				plt.show()
 
 			elif self.plot_type_2.currentText() == 'Zippering configuration':
 
-				pass
+				os.chdir(file_folder)
+
+				x_array_2, y_array_2 = config_energy.zippering_config(N0, Nf)
+
+				new_x_array = [x_array, x_array_2]
+				new_y_array = [y_array, y_array_2]
+
+				make_plot = MakePlot(title, xlabel, ylabel, data_labels, avg_labels, grid, data_linestyles, avg_linestyles, data_colors, avg_colors, data_markers, plot_avg, default, legend, inverse_xlim, equil, right, left, top, bottom, wspace, hspace, width, height, background, borders)
+				plt = make_plot.plot_comparison(new_x_array, new_y_array)
+
+				plt.show()
+
+			elif self.plot_type.currentText() == 'Energy barrier vs dipole frac':
+
+				os.chdir(file_folder)
+
+				dipole_fractions = np.linspace(init_dipole, final_dipole, points_dipole)
+
+				x_array_2, y_array_2 = self.E_barrier_vs_dipole_frac(m, d, adimensionalised, N0, Nf, points, dipole_fractions)
+
+				new_x_array = [x_array, x_array_2]
+				new_y_array = [y_array, y_array_2]
+
+				make_plot = MakePlot(title, xlabel, ylabel, data_labels, avg_labels, grid, data_linestyles, avg_linestyles, data_colors, avg_colors, data_markers, plot_avg, default, legend, inverse_xlim, equil, right, left, top, bottom, wspace, hspace, width, height, background, borders)
+				plt = make_plot.plot_comparison(new_x_array, new_y_array)
+
+				plt.show()
+
+			elif self.plot_type_2.currentText() == 'Add dipole middle chain':
+
+				os.chdir(file_folder)
+
+				x_array_2, y_array_2 = config_energy.add_dipole_chain_middle(N0, Nf)
+
+				new_x_array = [x_array, x_array_2]
+				new_y_array = [y_array, y_array_2]
+
+				make_plot = MakePlot(title, xlabel, ylabel, data_labels, avg_labels, grid, data_linestyles, avg_linestyles, data_colors, avg_colors, data_markers, plot_avg, default, legend, inverse_xlim, equil, right, left, top, bottom, wspace, hspace, width, height, background, borders)
+				plt = make_plot.plot_comparison(new_x_array, new_y_array)
+
+				plt.show()
 
 	#close event
 	def closeEvent(self, event):
