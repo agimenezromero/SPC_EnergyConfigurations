@@ -64,10 +64,19 @@ Almost all matplotlib.pyplot parameters can be changed in an easy way by the use
 - `Title`: Write here the plot title.
 - `xlabel`: Write here the label for the x axis.
 - `ylabel`: Write here the label for the y axis.
+- `Data labels`: Write here the labels for the different lines that will be set in the legend.
 - `Data linestyles`: Write here the linestyles for the different lines ploted following the matplotlib.pyplot [syntax](https://matplotlib.org/gallery/lines_bars_and_markers/line_styles_reference.html).
 - `Data colors`: Write here the colors for the different lines ploted following the matplotlib.pyplot [syntax](https://matplotlib.org/2.0.2/examples/color/named_colors.html).
 - `Data markers`: Write here the markers for the different lines ploted following the matplotlib.pyplot [syntax](https://matplotlib.org/api/markers_api.html).
 
+*The same is applied to the average lines.*
 
+In the line below some checkbox are available:
 
+- `Default`: Set default matplotlib.pyplots settings.
+- `Grid`: Plot a background grid.
+- `Plot average`: Plot an average computed from the equilibrium value.
+- `Legend`: Show the written labels in a legend.
+- `Inverse xlim`: Inverse the x axis limits (Use it to plot `add dipole progression` graph)
 
+Finally, you can also customize the ploted figure by changing it's shape, background color or other parameters.
