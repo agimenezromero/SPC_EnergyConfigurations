@@ -8,7 +8,7 @@ Table of contents
 =================
 
 <!--ts-->
-   * [Superparamagnetic Chain EnergyConfigurations](#Superparamagnetic-Chain-EnergyConfigurations)
+   * [Overview](#Overview)
    * [Table of contents](#table-of-contents)
    * [Installation](#installation)
    * [Usage](#usage)
@@ -39,9 +39,9 @@ First of all the studied system parameters must be set. This are the characteris
 This software calculates the energy for different superparamagnetic aggregate configurations or the change of energy when moving from one configuration to another, in order to determine if the studied configurations are possible, stable, or more probable than others. The different configurations implemented are the following:
 
 - `Head to tail aggregation`: Computes the change of energy due the  head-to-tail aggregation of a particle to a linear chain as a function of the number of particles in the chain.
-- `Lateral aggregation`: Computes the change of energy due the lateral aggregation of a particle to a linear chain as a function of the number of particles in the chain.
-- `Add dipole progression`: Computes the change of energy due the lateral insertion of a particle in a linear chain as a function of the separation between the center of the inserted particle and the line crossing the chain from head to tail. By setting `N final` greater than `N initial` one can study this process for different chain length in the same plot. The initial configuration corresponds to a lateral aggregated and we compute the change of energy respect to this configuration untill we have a linear chain because of the particle insertion. This proces shows an energy barrier that can be studied with the following option.
-- `Energy barrier`: Computes the previously mentioned energy barrier as a function of the number of particles in the chain.
+- `Lateral aggregation`: Computes the change of energy due the lateral aggregation of a particle to a linear chain as a function of the number of particles in the chain. Number of particles in chains should be even for a properly study!
+- `Add dipole progression`: Computes the change of energy due the lateral insertion of a particle in a linear chain as a function of the separation between the center of the inserted particle and the line crossing the chain from head to tail. By setting `N final` greater than `N initial` one can study this process for different chain length in the same plot. The initial configuration corresponds to a lateral aggregated and we compute the change of energy respect to this configuration untill we have a linear chain because of the particle insertion. Number of particles in chains should be even for a properly study! This proces shows an energy barrier that can be studied with the following option.
+- `Energy barrier`: Computes the previously mentioned energy barrier as a function of the number of particles in the chain. Number of particles in chains should be even for a properly study!
 - `Two identical head to tail`: Computes the change of energy due the head-to-tail aggregation of a chain with another of the same length.
 - `Zippering configuration`: Computes the change of energy due the lateral aggregation of a chain with another of the same length.
 
@@ -80,3 +80,13 @@ In the line below some checkbox are available:
 - `Inverse xlim`: Inverse the x axis limits (Use it to plot `add dipole progression` graph)
 
 Finally, you can also customize the ploted figure by changing it's shape, background color or other parameters.
+
+# Examples
+
+# Authors
+
+# License
+
+# Acknowledgments
+
+
