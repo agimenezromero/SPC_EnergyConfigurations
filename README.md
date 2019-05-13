@@ -16,7 +16,6 @@ Table of contents
       * [Setting configuration parameters](#Setting-configurations-parameters)
       * [Ploting data](#Ploting-data)
       * [Plot customization](#Plot-customization)
-   * [Examples](#Examples)
    * [Authors](#Authors)
    * [License](#License)
    * [Acknowledgments](#Acknowledgements)
@@ -81,11 +80,14 @@ In the line below some checkbox are available:
 
 Finally, you can also customize the ploted figure by changing it's shape, background color or other parameters.
 
-# Examples
-
 # Authors
+* **Àlex Giménez**
+* **Jordi Faraudo** - *ICMAB-CSIC, Barcelona*
+* **Juan Camacho** - *Universitat Autònoma de Barcelona*
 
 # License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
 # Acknowledgments
 
