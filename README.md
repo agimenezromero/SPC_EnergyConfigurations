@@ -87,7 +87,7 @@ Finally, you can also customize the ploted figure by changing it's shape, backgr
 
 # License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/alexeltsar/SPC_EnergyConfigurations/blob/master/LICENSE) file for details
 
 # Acknowledgments
 
