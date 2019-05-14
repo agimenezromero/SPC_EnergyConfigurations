@@ -1,6 +1,12 @@
 # Superparamagnetic Chain EnergyConfigurations
 A simple graphical interface built in PyQt5 to calculate and analyse the energy of different superparamangetic particle configurations.
 
+When using this program please cite the following basic reference:
+
+"Predicting the Self‐Assembly of Superparamagnetic Colloids under Magnetic Fields" by 
+Jordi Faraudo  Jordi S. Andreu  Carles Calero  Juan Camacho
+Advanced Functional Materials 26, 3837 (2016) https://doi.org/10.1002/adfm.201504839
+
 # Overview
 The aim of this program is to simplify and automate the energetic analysis of the different structures formed in colloidal dispersions of superparamagnetic particles under magnetic fields. With this graphical interface the energetic analysis of different kinds of aggregation, including chain formation among others, can be done simply and easily, so anyone with basic or even null programming notions will be able to use all the software features. Although the software use is quite intuitive, a documentation has been written to assure its properly use, so we strongly recommend having a look on it.
 
