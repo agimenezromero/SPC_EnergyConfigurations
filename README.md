@@ -87,13 +87,13 @@ In the line below some checkbox are available:
 Finally, you can also customize the ploted figure by changing it's shape, background color or other parameters.
 
 # Authors
-* **Àlex Giménez**
-* **Jordi Faraudo** - *ICMAB-CSIC, Barcelona*
-* **Juan Camacho** - *Universitat Autònoma de Barcelona*
+* **A. Giménez-Romero**
+* **J. Faraudo** - *ICMAB-CSIC, Barcelona*
+* **J. Camacho** - *Universitat Autònoma de Barcelona*
 
 # License
 
-This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/alexeltsar/SPC_EnergyConfigurations/blob/master/LICENSE) file for details
+This project is licensed under the GNU General Public License - see the [LICENSE.md](https://github.com/alexeltsar/SPC_EnergyConfigurations/blob/master/LICENSE) file for details
 
 # Acknowledgments
 
