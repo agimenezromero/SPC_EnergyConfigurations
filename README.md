@@ -14,17 +14,17 @@ Table of contents
 =================
 
 <!--ts-->
-   * [Overview](#Overview)
+   * [Overview](#overview)
    * [Table of contents](#table-of-contents)
    * [Installation](#installation)
    * [Usage](#usage)
-      * [Setting system parameters](#Setting-system-parameters)
-      * [Setting configuration parameters](#Setting-configurations-parameters)
-      * [Ploting data](#Ploting-data)
-      * [Plot customization](#Plot-customization)
-   * [Authors](#Authors)
-   * [License](#License)
-   * [Acknowledgments](#Acknowledgements)
+      * [Setting system parameters](#setting-system-parameters)
+      * [Setting configuration parameters](#setting-configuration-parameters)
+      * [Plotting data](#plotting-data)
+      * [Plot customization](#plot-customization)
+   * [Authors](#authors)
+   * [License](#license)
+   * [Acknowledgments](#acknowledgments)
 <!--te-->
 
 # Installation
